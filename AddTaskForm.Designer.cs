@@ -43,7 +43,7 @@
             // addTitle
             // 
             addTitle.AutoSize = true;
-            addTitle.Location = new Point(68, 79);
+            addTitle.Location = new Point(68, 46);
             addTitle.Name = "addTitle";
             addTitle.Size = new Size(30, 15);
             addTitle.TabIndex = 0;
@@ -52,7 +52,7 @@
             // addCategory
             // 
             addCategory.AutoSize = true;
-            addCategory.Location = new Point(43, 119);
+            addCategory.Location = new Point(43, 86);
             addCategory.Name = "addCategory";
             addCategory.Size = new Size(55, 15);
             addCategory.TabIndex = 1;
@@ -61,7 +61,7 @@
             // addDueDate
             // 
             addDueDate.AutoSize = true;
-            addDueDate.Location = new Point(43, 162);
+            addDueDate.Location = new Point(43, 129);
             addDueDate.Name = "addDueDate";
             addDueDate.Size = new Size(55, 15);
             addDueDate.TabIndex = 2;
@@ -70,7 +70,7 @@
             // addPriority
             // 
             addPriority.AutoSize = true;
-            addPriority.Location = new Point(53, 206);
+            addPriority.Location = new Point(53, 173);
             addPriority.Name = "addPriority";
             addPriority.Size = new Size(45, 15);
             addPriority.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // saveButton
             // 
-            saveButton.Location = new Point(229, 262);
+            saveButton.Location = new Point(229, 229);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(103, 23);
             saveButton.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new Point(104, 262);
+            cancelButton.Location = new Point(104, 229);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(103, 23);
             cancelButton.TabIndex = 5;
@@ -98,14 +98,14 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(107, 76);
+            txtTitle.Location = new Point(107, 43);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(225, 23);
             txtTitle.TabIndex = 10;
             // 
             // dtpDueDate
             // 
-            dtpDueDate.Location = new Point(104, 156);
+            dtpDueDate.Location = new Point(104, 123);
             dtpDueDate.Name = "dtpDueDate";
             dtpDueDate.Size = new Size(228, 23);
             dtpDueDate.TabIndex = 8;
@@ -115,7 +115,7 @@
             comboPriority.DisplayMember = "1";
             comboPriority.FormattingEnabled = true;
             comboPriority.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
-            comboPriority.Location = new Point(105, 203);
+            comboPriority.Location = new Point(105, 170);
             comboPriority.Name = "comboPriority";
             comboPriority.Size = new Size(47, 23);
             comboPriority.TabIndex = 9;
@@ -124,7 +124,7 @@
             // 
             comboCategory.FormattingEnabled = true;
             comboCategory.Items.AddRange(new object[] { "Work", "Home", "School", "Errands", "Health", "Hobbies", "Recreation", "Financial" });
-            comboCategory.Location = new Point(107, 116);
+            comboCategory.Location = new Point(107, 83);
             comboCategory.Name = "comboCategory";
             comboCategory.Size = new Size(121, 23);
             comboCategory.TabIndex = 11;
@@ -133,7 +133,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(375, 360);
+            ClientSize = new Size(375, 294);
             Controls.Add(comboCategory);
             Controls.Add(comboPriority);
             Controls.Add(dtpDueDate);

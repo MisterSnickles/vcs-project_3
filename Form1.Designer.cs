@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ComboBox comboSort;
             taskLabel = new Label();
-            searchTxtBox = new TextBox();
             createButton = new Button();
             editButton = new Button();
             taskListView = new ListView();
@@ -39,33 +39,35 @@
             taskCategory = new ColumnHeader();
             markCompleteButton = new Button();
             deleteButton = new Button();
-            comboSort = new ComboBox();
             sortByLabel = new Label();
-            showCompletedCheck = new CheckBox();
+            showCompleteButton = new Button();
+            comboSort = new ComboBox();
             SuspendLayout();
+            // 
+            // comboSort
+            // 
+            comboSort.Items.AddRange(new object[] { "Errands", "Financial", "Health", "Hobbies", "Home", "Recreation", "School", "Work" });
+            comboSort.Location = new Point(118, 431);
+            comboSort.Name = "comboSort";
+            comboSort.Size = new Size(121, 33);
+            comboSort.Sorted = true;
+            comboSort.TabIndex = 12;
+            comboSort.SelectedIndexChanged += comboSort_SelectedIndexChanged;
             // 
             // taskLabel
             // 
             taskLabel.AutoSize = true;
             taskLabel.Font = new Font("Segoe UI", 20F);
-            taskLabel.Location = new Point(42, 64);
+            taskLabel.Location = new Point(38, 68);
             taskLabel.Margin = new Padding(5, 0, 5, 0);
             taskLabel.Name = "taskLabel";
-            taskLabel.Size = new Size(391, 37);
+            taskLabel.Size = new Size(266, 37);
             taskLabel.TabIndex = 1;
-            taskLabel.Text = "Create Edit and Search for Tasks";
-            // 
-            // searchTxtBox
-            // 
-            searchTxtBox.Location = new Point(42, 104);
-            searchTxtBox.Name = "searchTxtBox";
-            searchTxtBox.PlaceholderText = "search...";
-            searchTxtBox.Size = new Size(722, 32);
-            searchTxtBox.TabIndex = 2;
+            taskLabel.Text = "Create and Edit Tasks";
             // 
             // createButton
             // 
-            createButton.Location = new Point(89, 426);
+            createButton.Location = new Point(38, 369);
             createButton.Name = "createButton";
             createButton.Size = new Size(124, 32);
             createButton.TabIndex = 3;
@@ -75,7 +77,7 @@
             // 
             // editButton
             // 
-            editButton.Location = new Point(242, 426);
+            editButton.Location = new Point(225, 369);
             editButton.Name = "editButton";
             editButton.Size = new Size(124, 32);
             editButton.TabIndex = 4;
@@ -85,13 +87,12 @@
             // 
             // taskListView
             // 
-            taskListView.CheckBoxes = true;
             taskListView.Columns.AddRange(new ColumnHeader[] { taskTitle, taskDueDate, taskPriority, taskCategory });
             taskListView.FullRowSelect = true;
-            taskListView.Location = new Point(42, 142);
+            taskListView.Location = new Point(38, 117);
             taskListView.Name = "taskListView";
             taskListView.Scrollable = false;
-            taskListView.Size = new Size(722, 222);
+            taskListView.Size = new Size(720, 222);
             taskListView.TabIndex = 5;
             taskListView.UseCompatibleStateImageBehavior = false;
             taskListView.View = View.Details;
@@ -100,7 +101,7 @@
             // 
             taskTitle.Text = "Title";
             taskTitle.TextAlign = HorizontalAlignment.Center;
-            taskTitle.Width = 250;
+            taskTitle.Width = 278;
             // 
             // taskDueDate
             // 
@@ -122,55 +123,50 @@
             // 
             // markCompleteButton
             // 
-            markCompleteButton.Location = new Point(395, 426);
+            markCompleteButton.Location = new Point(412, 369);
             markCompleteButton.Name = "markCompleteButton";
             markCompleteButton.Size = new Size(159, 32);
             markCompleteButton.TabIndex = 6;
             markCompleteButton.Text = "Mark Complete";
             markCompleteButton.UseVisualStyleBackColor = true;
+            markCompleteButton.Click += markCompleteButton_Click;
             // 
             // deleteButton
             // 
-            deleteButton.Location = new Point(583, 426);
+            deleteButton.Location = new Point(634, 369);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(124, 32);
             deleteButton.TabIndex = 7;
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = true;
-            // 
-            // comboSort
-            // 
-            comboSort.Items.AddRange(new object[] { "Work", "Home", "School", "Errands", "Health", "Hobbies", "Recreation", "Financial" });
-            comboSort.Location = new Point(170, 379);
-            comboSort.Name = "comboSort";
-            comboSort.Size = new Size(121, 33);
-            comboSort.TabIndex = 12;
+            deleteButton.Click += deleteButton_Click;
             // 
             // sortByLabel
             // 
             sortByLabel.AutoSize = true;
-            sortByLabel.Location = new Point(89, 382);
+            sortByLabel.Location = new Point(37, 434);
             sortByLabel.Name = "sortByLabel";
             sortByLabel.Size = new Size(75, 25);
             sortByLabel.TabIndex = 9;
             sortByLabel.Text = "Sort by:";
             // 
-            // showCompletedCheck
+            // showCompleteButton
             // 
-            showCompletedCheck.AutoSize = true;
-            showCompletedCheck.Location = new Point(533, 383);
-            showCompletedCheck.Name = "showCompletedCheck";
-            showCompletedCheck.Size = new Size(174, 29);
-            showCompletedCheck.TabIndex = 11;
-            showCompletedCheck.Text = "Show Completed";
-            showCompletedCheck.UseVisualStyleBackColor = true;
+            showCompleteButton.Location = new Point(603, 423);
+            showCompleteButton.Name = "showCompleteButton";
+            showCompleteButton.Size = new Size(155, 36);
+            showCompleteButton.TabIndex = 13;
+            showCompleteButton.Text = "Show Complete";
+            showCompleteButton.UseVisualStyleBackColor = true;
+            showCompleteButton.Click += showCompleteButton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(796, 533);
-            Controls.Add(showCompletedCheck);
+            Controls.Add(showCompleteButton);
             Controls.Add(sortByLabel);
             Controls.Add(comboSort);
             Controls.Add(deleteButton);
@@ -178,7 +174,6 @@
             Controls.Add(taskListView);
             Controls.Add(editButton);
             Controls.Add(createButton);
-            Controls.Add(searchTxtBox);
             Controls.Add(taskLabel);
             Font = new Font("Segoe UI", 14F);
             Margin = new Padding(5);
@@ -190,7 +185,6 @@
 
         #endregion
         private Label taskLabel;
-        private TextBox searchTxtBox;
         private Button createButton;
         private Button editButton;
         private ListView taskListView;
@@ -202,6 +196,6 @@
         private Button deleteButton;
         private ComboBox comboSort;
         private Label sortByLabel;
-        private CheckBox showCompletedCheck;
+        private Button showCompleteButton;
     }
 }
